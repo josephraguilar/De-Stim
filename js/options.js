@@ -12,8 +12,8 @@ saveButton.addEventListener('click', function(e) {
   };
 
   chrome.storage.sync.set({
-    'fontSize': fontSize;
-    'fontColor': fontColor;
-    'colorSat': colorSat;
+    'fontSize': fontSize,
+    'fontColor': fontColor,
+    'colorSat': colorSat,
   })
 });
