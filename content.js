@@ -4,19 +4,18 @@ var settings = new Promise(function (resolve, reject) {
     let fontColor = (data['fontColor']);
     let colorSat = (data['colorSat']);
     resolve([fontSize, fontColor, colorSat]);
-    console.log(colorSat);
   })
 
 })
 
-window.onload = settings.then((e) =>  {
+
+settings.then((e) =>  {
   document.body.style.fontSize = e[0] + "px";
   document.body.style.color = e[1];
 
   var imgs = document.getElementsByTagName('img');
-  for (imageElt of imgs )
+  for (let images of imgs )
   {
-  imageElt.style.filter = `"brightness(${e[2]}%)"`;
+  images.style.filter = `saturate(${e[2]}%)`;
   }
-console.log(e[0], e[1], e[2]);
 })

@@ -5,35 +5,15 @@ saveButton.addEventListener('click', function(e) {
   let fontSize = document.getElementById('fontSize').value;
   let fontColor = document.getElementById('fontColor').value;
   let colorSat = document.getElementById('colorSat').value;
-  if (chrome.storage === undefined) {
+  if (chrome.storage === undefined || chrome.storage === null || chrome.storage === '') {
     null
   } else {
     chrome.storage.clear
   };
 
   chrome.storage.sync.set({
-    'fontSize': fontSize
-  }, function() {
-    chrome.storage.sync.get('fontSize', function(obj) {
-      console.log(obj['fontSize']);
-    })
-  });;
-
-  chrome.storage.sync.set({
-    'fontColor': fontColor
-  }, function() {
-    chrome.storage.sync.get('fontColor', function(obj) {
-      console.log(obj['fontColor']);
-    })
-  });
-
-
-  chrome.storage.sync.set({
-    'colorSat': colorSat
-  }, function() {
-    chrome.storage.sync.get('colorSat', function(obj) {
-      console.log(obj['colorSat']);
-    })
-  });
-
+    'fontSize': fontSize;
+    'fontColor': fontColor;
+    'colorSat': colorSat;
+  })
 });
